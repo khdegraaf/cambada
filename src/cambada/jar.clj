@@ -77,7 +77,7 @@
            "Cambada-Project-ArtifactId" app-artifact-id
            "Cambada-Project-GroupId" app-group-id
            "Cambada-Project-Version" app-version}
-    (not (nil? main)) (assoc "Main-Class" main)))
+    (not (nil? main)) (assoc "Main-Class" (string/replace main "-" "_"))))
 
 (defn ^:private make-manifest-bytes [{:keys [main] :as task}]
   (->> (default-manifest task)
